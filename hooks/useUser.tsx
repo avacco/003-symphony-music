@@ -79,7 +79,7 @@ export const MyUserContextProvider = (props: Props) => {
 
 }
 
-export const userUser = () => {
+export const useUser = () => {
   const context = useContext(UserContext);
   
   if(context === undefined) throw new Error('Hook useUser debe ser utilizado en un contexto de MyUserContextProvider');

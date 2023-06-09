@@ -5,6 +5,7 @@ import { Figtree } from 'next/font/google'
 import UserProvider from '@/providers/UserProvider'
 import ModalProvider from '@/providers/ModalProvider'
 import ToasterProvider from '@/providers/ToasterProvider'
+import getSongsByUserId from '@/actions/getSongsByUserId'
 
 const font = Figtree({ subsets: ['latin'] })
 
@@ -13,11 +14,16 @@ export const metadata = {
   description: 'Comparte y escucha musica',
 }
 
-export default function RootLayout({
+export const revalidate = 0; // Evita cacheo de la pagina 
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+
+  const userSongs = await getSongsByUserId();
+
   return (
     <html lang="en">
       <body className={font.className}>
@@ -25,7 +31,7 @@ export default function RootLayout({
         <SupabaseProvider> {/* Proveedor para funciones de Supabase */}
           <UserProvider> {/* Proveedor que se encarga de manejar los datos y estado de usuario */}
             <ModalProvider /> {/* Proveedor que se encarga de manejar los modals  */}
-            <Sidebar> {/* Componente que se encarga de mostrar el menu lateral */}
+            <Sidebar songs={userSongs}> {/* Componente que se encarga de mostrar el menu lateral */}
               {children}
             </Sidebar>
           </UserProvider>

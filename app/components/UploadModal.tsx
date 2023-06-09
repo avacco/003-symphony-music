@@ -12,6 +12,7 @@ import uniqid from "uniqid";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
 
+/* Componente de modal para subida de canciones */
 const UploadModal = () => {
   
   const uploadModal = useUploadModal();
@@ -89,6 +90,7 @@ const UploadModal = () => {
         return toast.error("No se ha podido subir la canción");
       }
 
+      // Finaliza refrescando la pagina para que se carguen las nuevas canciones. Cierra el modal y manda un mensaje de exito
       router.refresh();
       setIsLoading(false);
       toast.success("Canción creada");
@@ -96,7 +98,7 @@ const UploadModal = () => {
       uploadModal.onClose();
 
     }catch(error){
-      toast.error("Error: "+error);
+      toast.error("Error al subir la canción");
     }finally{
       setIsLoading(false);
     }

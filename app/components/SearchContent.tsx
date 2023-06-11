@@ -2,11 +2,13 @@
 
 import { Song } from "@/types";
 import MediaItem from "./MediaItem";
+import LikeButton from "./LikeButton";
 
 interface SearchContentProps {
   songs: Song[];
 }
 
+/* Componente que muestra el contenido de la búsqueda, o un mensaje si no encuentra nada. Recibe de props las canciones que se han encontrado. */
 const SearchContent: React.FC<SearchContentProps> = ({ songs }) => {
   
   if(songs.length === 0) {
@@ -24,6 +26,7 @@ const SearchContent: React.FC<SearchContentProps> = ({ songs }) => {
             <div className="flex-1">
               <MediaItem onClick={() => {}} data={song} />
             </div>
+            <LikeButton songId={song.id} />
         </div>
       ))}
     </div>

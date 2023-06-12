@@ -7,16 +7,23 @@ import { useUser } from '@/hooks/useUser';
 import useUploadModal from '@/hooks/useUploadModal';
 import { Song } from '@/types';
 import MediaItem from './MediaItem';
+import useOnPlay from '@/hooks/useOnPlay';
 
 interface LibraryProps {
   songs: Song[];
 }
 
+/**
+ * Componente de libreria que muestra las canciones que el usuario ha subido
+ * @param songs Lista de canciones
+ */
 export const Library: React.FC<LibraryProps> = ({ songs }) => {
  
   const authModal = useAuthModal();
   const uploadModal = useUploadModal();
   const { user, subscription } = useUser();
+
+  const onPlay = useOnPlay(songs);
 
   const onClick = () => {
     if(!user) return authModal.onOpen(); // Abre modal de autenticacion para usuarios no logeados
@@ -42,7 +49,7 @@ export const Library: React.FC<LibraryProps> = ({ songs }) => {
           <div>
             <MediaItem 
               key={item.id}
-              onClick={() => {}}
+              onClick={(id: string) => onPlay(id)}
               data={item} 
             />
           </div>

@@ -1,7 +1,11 @@
 import { Song } from "@/types";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
-/* Hook que retorna la url de la imagen de la canción, traida de la base de datos. Necesita los datos de la canción para poder hacer la consulta. */
+/**
+ * Hook que retorna la url de la imagen de la canción, traida de la base de datos. Necesita los datos de la canción para poder hacer la consulta.
+ * @param song Datos de la canción.
+ * @returns Url de la imagen.
+ */
 const useLoadImage = (song: Song) => {
   const supabaseClient = useSupabaseClient();
 

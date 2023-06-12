@@ -6,7 +6,12 @@ interface AuthModalStore {
   onClose: () => void;
 };
 
-/* Hook para el control de modal de autenticación */
+/**
+ * Hook para el control de modal de autenticación
+ * @property isOpen boolean, normalmente falso.
+ * @function onOpen setea isOpen a true.
+ * @function onClose setea isOpen a false.
+ */
 const useAuthModal = create<AuthModalStore>((set) => ({
   isOpen: false,
   onOpen: () => set({ isOpen: true }),

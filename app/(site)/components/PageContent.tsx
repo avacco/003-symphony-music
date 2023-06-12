@@ -1,13 +1,19 @@
 "use client";
 
 import SongItem from "@/app/components/SongItem";
+import useOnPlay from "@/hooks/useOnPlay";
 import { Song } from "@/types";
 
 interface PageContentProps {
   songs: Song[];
 }
-/* Componente que muestra el contenido de la pagina, especificamente las canciones. Recibe "songs", un array con los datos de las canciones sacados de la base de datos. */
+/** 
+ * Componente que muestra el contenido de la pagina, especificamente las canciones. Recibe "songs", un array con los datos de las canciones sacados de la base de datos. 
+ * @param songs Array de canciones. Traido como prop desde la homepage.  
+*/
 const PageContent: React.FC<PageContentProps> = ({ songs }) => {
+
+  const onPlay = useOnPlay( songs );
   
   if(songs.length === 0){
     return (
@@ -22,7 +28,7 @@ const PageContent: React.FC<PageContentProps> = ({ songs }) => {
       {songs.map((item) => (
         <SongItem
           key={item.id}
-          onClick={() => {}}
+          onClick={(id: string) => onPlay(id)}
           data={item}
         />
       ))}

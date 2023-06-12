@@ -8,6 +8,9 @@ interface SearchProps {
     title: string;
   }
 };
+
+export const revalidate = 0;
+
 /* Renderiza la página de busqueda. Recibe como parámetro (con searchParams) el título de la canción a buscar. */
 const Search = async ({ searchParams }: SearchProps) => {
   

@@ -4,8 +4,11 @@ import { ListItem } from '../components/ListItem'
 import getSongs from '@/actions/getSongs';
 import PageContent from './components/PageContent';
 
-export const revalidate = 0; // previene cacheo del sitio
+export const revalidate = 0; // Previene cacheo del sitio
 
+/**
+ * Home page de la aplicación
+ */
 export default async function Home() {
   
   const songs = await getSongs();
@@ -30,7 +33,7 @@ export default async function Home() {
         </div>
         <div>
           Lista de canciones
-          <PageContent songs={songs} />
+          <PageContent songs={songs} /> {/* Envia las canciones al componente de contenido de la pagina */}
         </div>
       </div>
     </div>

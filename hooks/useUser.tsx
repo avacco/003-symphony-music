@@ -18,8 +18,9 @@ export interface Props {
 };
 
 
-/* Hook que se encargara de obtener los datos del usuario y chequear que esté logueado y/o tenga subscripcion */
-
+/**
+ * Hook que se encargara de obtener los datos del usuario y chequear que esté logueado y/o tenga subscripcion
+ */
 export const MyUserContextProvider = (props: Props) => {
   const {session, isLoading: isLoadingUser, supabaseClient: supabase} = useSessionContext();
 
@@ -66,7 +67,7 @@ export const MyUserContextProvider = (props: Props) => {
     }
   }, [user, isLoadingUser]);
 
-  // encapsula los valores utilizados en un objeto
+  // Encapsula los valores utilizados en un objeto
   const value = {
     accessToken,
     user,

@@ -1,6 +1,7 @@
 "use client";
 
 import useLoadImage from "@/hooks/useLoadImage";
+import usePlayer from "@/hooks/usePlayer";
 import { Song } from "@/types";
 import Image from "next/image";
 
@@ -12,10 +13,12 @@ interface MediaItemProps {
 /* Componente que muestra una canción de la libreria del usuario. Recibe los datos de la cancion, y una funcion onClick como parametros, de parte del componente padre (Library) */
 const MediaItem: React.FC<MediaItemProps> = ({ data, onClick }) => {
   
+  const player = usePlayer();
   const imageUrl = useLoadImage(data); // Envia los datos de la cancion al hook y recibe la url de la imagen.
   
   const handleClick = () => {
     if(onClick) return onClick(data.id);
+    return player.setId(data.id);
   }
 
   return (

@@ -50,13 +50,11 @@ export const Library: React.FC<LibraryProps> = ({ songs }) => {
       </div>
       <div className='flex flex-col  gap-y-2 mt-4 px-3'>
         {songs.map((item) => (
-          <div>
-            <MediaItem 
-              key={item.id}
-              onClick={(id: string) => onPlay(id)}
-              data={item} 
-            />
-          </div>
+          <MediaItem 
+            key={item.id}
+            onClick={(id: string) => onPlay(id)}
+            data={item} 
+          />
         ))}
       </div>
     </div>

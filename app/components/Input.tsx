@@ -16,4 +16,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({ className, type, disab
   )
 });
 
+Input.displayName = 'Symphony Music';
+
 export default Input;

@@ -14,11 +14,17 @@ const useOnPlay = (songs: Song[]) => {
   const player = usePlayer();
   const subscribeModal = useSubscribeModal();
   const authModal = useAuthModal();
-  const { user, subscription } = useUser();
+  
+ // Borrar comentario para activar las funciones de prohibición.
+ // const { user, subscription } = useUser();
 
   const onPlay = (id: string) => {
-   // if (!user) return authModal.onOpen(); // Activar para prohibir acceso a usuarios no logeados
-   // if (!subscription) return subscribeModal.onOpen(); //Activar para prohibir acceso a usuarios no suscritos
+
+  // Activar para prohibir acceso a usuarios no logeados
+  // if (!user) return authModal.onOpen();
+   
+  //Activar para prohibir acceso a usuarios no suscritos
+  // if (!subscription) return subscribeModal.onOpen(); 
 
     player.setId(id); // Setea la cancion actual en el reproductor (la que se acaba de clickear).
     player.setIds(songs.map((song) => song.id)); // Añade la cancion a la lista de reproduccion.

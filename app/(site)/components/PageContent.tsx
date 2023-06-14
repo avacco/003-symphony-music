@@ -1,6 +1,7 @@
 "use client";
 
 import SongItem from "@/app/components/SongItem";
+import useOnDelete from "@/hooks/useOnDelete";
 import useOnPlay from "@/hooks/useOnPlay";
 import { Song } from "@/types";
 
@@ -13,7 +14,8 @@ interface PageContentProps {
 */
 const PageContent: React.FC<PageContentProps> = ({ songs }) => {
 
-  const onPlay = useOnPlay( songs );
+  const onPlay = useOnPlay(songs);
+  const onDelete = useOnDelete();
   
   if(songs.length === 0){
     return (
@@ -29,6 +31,7 @@ const PageContent: React.FC<PageContentProps> = ({ songs }) => {
         <SongItem
           key={item.id}
           onClick={(id: string) => onPlay(id)}
+          onDelete={(id: string) => onDelete(id)}
           data={item}
         />
       ))}

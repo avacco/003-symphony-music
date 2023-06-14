@@ -12,7 +12,10 @@ interface LikeButtonProps {
   songId: string;
 }
 
-/* Componente de boton de favoritos. Recibe songId desde el componente padre SearchContent, y lo utiliza para asociar la cancion favorita al usuario activo */
+/**
+ * Componente de boton de favoritos. Recibe songId desde el componente padre SearchContent, y lo utiliza para asociar la cancion favorita al usuario activo 
+ * @param songId - ID de la cancion a marcar como favorita.
+ */
 const LikeButton: React.FC<LikeButtonProps> = ({ songId }) => {
   
   const router = useRouter();

@@ -17,7 +17,7 @@ const useOnPlay = (songs: Song[]) => {
   const { user, subscription } = useUser();
 
   const onPlay = (id: string) => {
-    if (!user) return authModal.onOpen();
+   // if (!user) return authModal.onOpen(); // Activar para prohibir acceso a usuarios no logeados
    // if (!subscription) return subscribeModal.onOpen(); //Activar para prohibir acceso a usuarios no suscritos
 
     player.setId(id); // Setea la cancion actual en el reproductor (la que se acaba de clickear).

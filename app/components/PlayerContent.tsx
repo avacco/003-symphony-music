@@ -10,6 +10,7 @@ import Slider from "./Slider";
 import usePlayer from "@/hooks/usePlayer";
 import { useEffect, useState } from "react";
 import useSound from "use-sound";
+import { IoMdClose } from "react-icons/io";
 
 interface PlayerContentProps {
   song: Song;
@@ -83,6 +84,9 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 h-full">
+      <button onClick={player.reset} className="hidden text-neutral-400 hover:text-white absolute top-[-10px] right-[10px] md:inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:outline-none">
+        <IoMdClose size={30} />
+      </button>
       <div className="flex w-full justify-start">
         <div className="flex items-center gap-x-4">
           <MediaItem data={song} />

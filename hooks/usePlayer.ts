@@ -7,12 +7,12 @@ interface PlayerStore {
   setIds: (ids: string[]) => void;
   reset: () => void;
 };
-/* Hook que maneja el estado del reproductor
- * @param ids: string[] - Lista de ids de canciones
- * @param activeId: string - Id de la canción activa
- * @param setId: (id: string) => void - Función que setea el id de la canción activa
- * @param setIds: (ids: string[]) => void - Función que setea la lista de ids de canciones
- * @param reset: () => void - Función que resetea el estado del reproductor
+/** Hook que maneja el estado del reproductor
+ * @param ids Lista de ids de canciones
+ * @param activeId Id de la canción activa
+ * @param setId Función que setea el id de la canción activa
+ * @param setIds Función que setea la lista de ids de canciones
+ * @param reset Función que resetea el estado del reproductor
 */
 const usePlayer = create<PlayerStore>((set) => ({
   ids: [],

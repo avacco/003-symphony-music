@@ -24,7 +24,6 @@ const SongItem: React.FC<SongItemProps> = ({ song, onClick, onDelete }) => {
   const prepareDelete = () => {
     if(confirmDelete) setConfirmDelete(false); else setConfirmDelete(true);
   }
-
   
   return (
     <>

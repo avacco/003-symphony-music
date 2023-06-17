@@ -31,8 +31,8 @@ const PageContent: React.FC<PageContentProps> = ({ songs }) => {
         <SongItem
           key={item.id}
           onClick={(id: string) => onPlay(id)}
-          onDelete={(id: string) => onDelete(id)}
-          data={item}
+          onDelete={(song: Song) => onDelete(song)}
+          song={item}
         />
       ))}
     </div>

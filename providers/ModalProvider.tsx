@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 interface ModalProviderProps {
   products: ProductWithPrice[]
-}
+ }
 
 /**
  * Proveedor de los distintos modals a usar en la aplicación

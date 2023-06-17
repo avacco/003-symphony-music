@@ -14,6 +14,7 @@ interface SubscribeModalProps {
   products: ProductWithPrice[];
 }
 
+// Da formato al precio de un producto. Este es en dolares estadounidenses.
 const formatPrice = (price: Price) => {
   const priceString = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -23,7 +24,10 @@ const formatPrice = (price: Price) => {
   
   return priceString
 }
-
+/**
+ * Modal para subscribirse a un producto
+ * @param products - Productos disponibles para subscribirse
+ */
 const SubscribeModal: React.FC<SubscribeModalProps> = ({ products }) => {
 
   const subscribeModal = useSubscribeModal();
@@ -89,7 +93,7 @@ const SubscribeModal: React.FC<SubscribeModalProps> = ({ products }) => {
               disabled={isLoading || price.id === priceIdLoading}
               className="mb-4"
             >
-              {`Subscribete por ${formatPrice(price)} dólares mensuales`}
+              {`Suscribete por ${formatPrice(price)} dólares mensuales`}
             </Button>
           ))
         })}
@@ -108,7 +112,7 @@ const SubscribeModal: React.FC<SubscribeModalProps> = ({ products }) => {
   return (
     <Modal 
       title="Solo para usuarios premium"
-      description="Para poder ver esta seccion debes ser premium"
+      description="Para poder utilizar esta sección debes ser usuario premium"
       isOpen={subscribeModal.isOpen}
       onChange={onChange}
     >
